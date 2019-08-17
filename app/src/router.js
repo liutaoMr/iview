@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import login from './views/login/login'
 import demo from './views/text/demo'
+import handle from './views/handle/handle'
+
 Vue.use(Router)
 
 export default new Router({
@@ -31,6 +33,11 @@ export default new Router({
       path:'/demo',
       name:'demo',
       component:demo
+    },
+    {
+      path:'/handle',
+      name:'handle',
+      component:handle
     }
   ]
 })
