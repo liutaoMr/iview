@@ -1,17 +1,17 @@
 <template>
     <div class="barcodeHandle" >
       <div class="barcodeFunction">
-        <Form   label-position="left" :label-width="74" style="display: inline-block; width: 87%; margin:0 10px;padding-top: 15px;position: relative" inline>
+        <Form   label-position="left" :label-width="90" style="display: inline-block; width: 87%; margin:0 10px;padding-top: 15px;position: relative" inline>
           <FormItem label="基本机构：">
             <Select v-model="searchInstitutions" style="width:121px;height:29px;">
               <Option v-for="item in institutionsList" :value="item.value" :key="item.value">{{ item.label }}</Option>
             </Select>
           </FormItem>
-          <FormItem label="姓名：" :label-width="48" >
+          <FormItem label="姓名：" :label-width="55" >
             <Input type="text" v-model="searchName" suffix="ios-search" placeholder="请输入姓名" style="width:100px;">
             </Input>
           </FormItem>
-          <FormItem label="时间段：":label-width="65">
+          <FormItem label="时间段：":label-width="70">
             <Date-picker  placeholder="选择日期"
                           type="daterange"
                           split-panels
@@ -20,7 +20,7 @@
                           style="width: 200px" >
             </Date-picker>
           </FormItem>
-          <FormItem label="类型：" :label-width="48" >
+          <FormItem label="类型：" :label-width="55" >
             <Select v-model="searchType" multiple style="height:29px;">
               <Option v-for="item,index in PersonnelTypeConfig" :value="item.value" :key="item.value">{{ item.value }}</Option>
             </Select>
@@ -35,7 +35,7 @@
         </div>
       </div>
       <div class="barcodeTable">
-        <Table width="100%" height="200" border :columns="tableConfig" :data="tableData"></Table>
+        <Table width="100%" height="150" border :columns="tableConfig" :data="tableData"></Table>
       </div>
       <handle-change v-bind:modalStatus="modalStatus" :paramsId="paramsId" @updateModalStatus="updateModalStatus"></handle-change>
     </div>

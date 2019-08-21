@@ -5,7 +5,7 @@
         <Col span="7">
           <Card style="width:97%;margin-left: 10px;text-align: center;">
             <p class="card-title">信息采集</p>
-            <Form :model="inforCollec" :rules="ruleInfor" ref="inforCollec" :label-width="90" inline>
+            <Form :model="inforCollec" :rules="ruleInfor" ref="inforCollec" :label-width="93" inline>
                   <FormItem label="姓名：" prop="name">
                     <Input type="text" v-model="inforCollec.name" style="width: 70px;"></Input>
                   </FormItem>
@@ -24,10 +24,10 @@
                     </Select>
                   </FormItem>
                   <FormItem label="户籍地址：" prop="location" >
-                    <Input type="text" v-model="inforCollec.location" style="width: 250px;"></Input>
+                    <Input type="text" v-model="inforCollec.location" style="width: 240px;"></Input>
                   </FormItem>
                   <FormItem label="身份证号：" prop="cardNum">
-                    <Input type="text" v-model="inforCollec.cardNum" style="width: 250px;"></Input>
+                    <Input type="text" v-model="inforCollec.cardNum" style="width: 240px;"></Input>
                   </FormItem>
                   <FormItem label="出生日期：" prop="birth">
                     <Date-picker  placeholder="选择日期"
@@ -49,28 +49,26 @@
             <div style="text-align:center">
               <p class="card-title">照片采集</p>
               <Row>
-                <Col span="10">
+                <Col span="13">
                   <div class="photo">
                     <img src="../../../public/images/noCamera.png" v-show="photoOk==''" style="padding: 56px 0;"  alt="">
                     <video muted ref="video" style="width: 100%;padding: 10px 0;" v-show="photoOk!==''"  autoplay></video>
                   </div>
                 </Col>
-                <Col span="10" style="text-align: center" >
+                <Col span="11" style="text-align: center;margin:0 auto" >
+                  <Button size="small" type="primary" id="reconnection" @click="handleReconnection()">重连</Button>
+                  <Button size="small" type="primary" id="photo" @click="handleCatchCode()">拍照</Button>
                   <div class="photoed">
-                    <img  v-show="hasImage==''" src="../../../public/images/blank.jpg" style="padding: 15px 0;" alt="">
                     <canvas v-show="hasImage!==''" ref="canvas" style="width: 100%;height:100%;"></canvas>
                   </div>
-                </Col>
-                <Col span="4">
-                  <Button size="small" type="primary" id="photo" @click="handleCatchCode()">拍照</Button>
-                  <Button size="small" type="primary" id="reconnection" @click="handleReconnection()">重连</Button>
                 </Col>
               </Row>
               <Row style="border-bottom: 1px solid #eeeeee;margin: 7px 0;"></Row>
               <Row>
-                <Col span="15" >
-                  <i class="signatureArea">签名区
-                  </i>
+                <Col span="15" style="line-height: 54px;position: relative" >
+                  <span>签名区</span>
+                  <span class="signatureArea">
+                  </span>
                   <Button size="large" type="primary" @click="handleSignature()" id="signature">签名</Button>
                 </Col>
                 <Col span="8" style="text-align: center">
@@ -87,12 +85,12 @@
           <Card  style="width:97%;text-align: center; ">
             <div style="text-align:center">
               <p class="card-title">资料完善</p>
-              <Form :model="inforCollec" :rules="ruleInfor" ref="inforCollec" :label-width="90" inline>
+              <Form :model="inforCollec" :rules="ruleInfor" ref="inforCollec" :label-width="96" inline>
                 <FormItem label="本人电话：" prop="Iphone">
-                  <Input type="text" v-model="inforCollec.Iphone" style="width: 100px;"></Input>
+                  <Input type="text" v-model="inforCollec.Iphone" style="width: 110px;"></Input>
                 </FormItem>
                 <FormItem label="责任医生：" prop="dutyDoctor">
-                  <Input type="text" v-model="inforCollec.dutyDoctor" style="width: 100px;"></Input>
+                  <Input type="text" v-model="inforCollec.dutyDoctor" style="width: 80px;"></Input>
                 </FormItem>
                 <FormItem label="现住地址：" prop="nowLocation">
                   <Input type="text" v-model="inforCollec.nowLocation" style="width: 300px;"></Input>
@@ -324,11 +322,8 @@
   .ivu-card-head {
     padding: 10px 16px;
   }
-  .ivu-form-item{
-    margin-bottom: 19px;
-  }
   .card-title{
-    padding-bottom:10px ;
+    padding-bottom:6px ;
     border-bottom:1px solid #eeeeee;
     margin-bottom:5px;
 
@@ -339,29 +334,31 @@
   #read{
     width:60%;
     height:30%;
-    margin: 9px 0;
+    margin: 17px 0;
     border-radius:20px;
   }
   #photo{
-    width:80%;
+    width:85px;
     height:30px;
     border-radius:19px;
+    margin: 5px 20px;
   }
   #reconnection{
-    width:80%;
+    margin: 5px 20px;
+    width:85px;
     height:30px;
     border-radius:19px;
-    margin-top: 20px;
   }
   .photo{
-    width:90%;
-    height:197px;
+    width:215px;
+    height: 236px;
     border:1px solid rgba(6,169,237,1);
     border-radius:4px;
   }
   .photoed{
-    width:90%;
-    height:197px;
+    margin-left: 26px;
+    width:150px;
+    height:158px;
     padding: 13px 0;
     border:1px solid rgba(6,169,237,1);
     border-radius:4px;
@@ -369,10 +366,13 @@
   .signatureArea{
     display: inline-block;
     line-height: 42px;
-    width:60%;
-    height:20%;
+    width:50px;
+    height:40px;
     border:1px solid rgba(6,169,237,1);
     border-radius:4px;
+    position: relative;
+    top: 10px;
+    margin: 0px 20px;
   }
   #signature{
     width:30%;

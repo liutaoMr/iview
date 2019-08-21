@@ -4,6 +4,8 @@ import Home from './views/Home.vue'
 import login from './views/login/login'
 import demo from './views/text/demo'
 import handle from './views/handle/handle'
+import heightWeight from "./views/handle/heightWeight/heightWeight";
+import TjRegistration from "./views/TjRegistration/TjRegistration";
 
 Vue.use(Router)
 
@@ -35,9 +37,22 @@ export default new Router({
       component:demo
     },
     {
+      name:'TjRegistration',
+      path:'/TjRegistration',
+      component:TjRegistration,
+    },
+    {
       path:'/handle',
       name:'handle',
-      component:handle
+      component:handle,
+      title:'操作页面',
+      children:[
+        {
+          path: '/heightWeight',
+          name: 'heightWeight',
+          component:heightWeight
+        },
+      ]
     }
   ]
 })
