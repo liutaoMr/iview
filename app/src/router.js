@@ -6,6 +6,9 @@ import demo from './views/text/demo'
 import handle from './views/handle/handle'
 import heightWeight from "./views/handle/heightWeight/heightWeight";
 import TjRegistration from "./views/TjRegistration/TjRegistration";
+import bloodPressure from "./views/handle/bloodPressure/bloodPressure"
+import bSuper from "./views/handle/bSuper/bSuper"
+
 
 Vue.use(Router)
 
@@ -52,6 +55,17 @@ export default new Router({
           name: 'heightWeight',
           component:heightWeight
         },
+        {
+          path: '/bloodPressure',
+          name: 'bloodPressure',
+          component:bloodPressure
+        },
+        {
+          path: '/bSuper',
+          name: 'bSuper',
+          component:bSuper
+        },
+
       ]
     }
   ]
